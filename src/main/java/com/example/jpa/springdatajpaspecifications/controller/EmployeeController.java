@@ -30,7 +30,7 @@ public class EmployeeController {
                 map(n -> new DepartmentResult(n.getId(), n.getNameOfDepartment())).collect(Collectors.toList());
         return depResults;
     }
-
+        // не работает-не выдает людай по департаментам
     @GetMapping("/employees/{department}")
     List<EmployeesResult> getEmployeesByDepartment(@PathVariable("department") String department){
         List<EmployeesResult> empRes=new ArrayList<>();
@@ -76,7 +76,7 @@ public class EmployeeController {
 //        return employeesResults;
 //    }
    //// вот это со спецификацией
-    @GetMapping("/empl/{firstName}")
+    @GetMapping("/employee/{firstName}")
     public List<EmployeesResult> findEmployeeByFirstName(@PathVariable("firstName") String firstName){
         List<EmployeesResult> employeesResults= new ArrayList<>();
         List<Employees> employees=employeeRepository.findAll(where(hasFirstName(firstName)));
